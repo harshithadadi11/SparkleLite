@@ -1,0 +1,1 @@
+{"version":3,"file":"auth.js","sourceRoot":"","sources":["../../src/middleware/auth.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAEA,gCAQC;AAVD,8DAAgD;AAEhD,SAAgB,UAAU,CAAC,OAAwC;IACjE,IAAI,CAAC,OAAO,CAAC,IAAI,EAAE,CAAC;QAClB,MAAM,IAAI,SAAS,CAAC,KAAK,CAAC,UAAU,CAClC,iBAAiB,EACjB,wCAAwC,CACzC,CAAC;IACJ,CAAC;IACD,OAAO,OAAO,CAAC,IAAI,CAAC,GAAG,CAAC;AAC1B,CAAC"}

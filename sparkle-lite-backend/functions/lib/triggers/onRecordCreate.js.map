@@ -1,0 +1,1 @@
+{"version":3,"file":"onRecordCreate.js","sourceRoot":"","sources":["../../src/triggers/onRecordCreate.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,8DAAgD;AAEnC,QAAA,cAAc,GAAG,SAAS,CAAC,SAAS;KAC9C,QAAQ,CAAC,2CAA2C,CAAC;KACrD,QAAQ,CAAC,KAAK,EAAE,IAAI,EAAE,OAAO,EAAE,EAAE;IAChC,0CAA0C;IAC1C,mBAAmB;IACnB,OAAO,IAAI,CAAC;AACd,CAAC,CAAC,CAAC"}

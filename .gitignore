@@ -1,0 +1,32 @@
+# Flutter
+.dart_tool/
+.packages
+.pub-cache/
+build/
+
+# Android
+android/.gradle/
+android/local.properties
+
+# iOS
+ios/Pods/
+
+# IDE
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Firebase
+firebase-debug.log
+
+# Generated
+*.g.dart
+*.freezed.dart
+
+# Secrets
+.env
+.env.*
+google-services.json
+GoogleService-Info.plist

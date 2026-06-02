@@ -1,0 +1,116 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isValidString(field, minLen, maxLen) {
+      return field is string && field.size() >= minLen && field.size() <= maxLen;
+    }
+
+    function isValidTimestamp(field) {
+      return field is timestamp;
+    }
+
+    function hasRequiredFields(fields) {
+      return request.resource.data.keys().hasAll(fields);
+    }
+
+    // Users collection
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+    }
+
+    // Health profiles
+    match /profiles/{userId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId)
+        && hasRequiredFields(['userId', 'nameOrNickname', 'lifeStage', 'createdAt'])
+        && isValidString(request.resource.data.nameOrNickname, 1, 100);
+      allow update: if isOwner(userId)
+        && request.resource.data.userId == userId;
+      allow delete: if isOwner(userId);
+    }
+
+    // Symptom logs — subcollection pattern
+    match /symptomLogs/{userId}/logs/{logId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId)
+        && hasRequiredFields(['userId', 'date', 'periodStatus', 'painLevel', 'mood', 'createdAt'])
+        && request.resource.data.userId == userId
+        && request.resource.data.painLevel is int
+        && request.resource.data.painLevel >= 0
+        && request.resource.data.painLevel <= 10;
+      allow update: if isOwner(userId)
+        && request.resource.data.userId == userId;
+      allow delete: if isOwner(userId);
+    }
+
+    // Health records
+    match /healthRecords/{userId}/records/{recordId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId)
+        && hasRequiredFields(['userId', 'title', 'recordType', 'recordDate', 'createdAt'])
+        && request.resource.data.userId == userId
+        && isValidString(request.resource.data.title, 1, 200);
+      allow update: if isOwner(userId)
+        && request.resource.data.userId == userId;
+      allow delete: if isOwner(userId);
+    }
+
+    // AI insights
+    match /aiInsights/{userId}/insights/{insightId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId)
+        && request.resource.data.userId == userId
+        && hasRequiredFields(['userId', 'summary', 'disclaimer', 'createdAt']);
+      allow update: if false; // Insights are immutable once created
+      allow delete: if isOwner(userId);
+    }
+
+    // Doctor summaries
+    match /doctorSummaries/{userId}/summaries/{summaryId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId)
+        && request.resource.data.userId == userId;
+      allow update: if isOwner(userId);
+      allow delete: if isOwner(userId);
+    }
+
+    // Family members — strictly separated from health data
+    match /familyMembers/{userId}/members/{memberId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId)
+        && request.resource.data.userId == userId
+        && hasRequiredFields(['userId', 'nameOrNickname', 'relationship', 'createdAt'])
+        && isValidString(request.resource.data.nameOrNickname, 1, 100);
+      allow update: if isOwner(userId);
+      allow delete: if isOwner(userId);
+    }
+
+    // Privacy settings
+    match /privacySettings/{userId} {
+      allow read: if isOwner(userId);
+      allow create, update: if isOwner(userId)
+        && request.resource.data.keys().hasAll([
+          'hideSensitiveDashboardDetails',
+          'useGenericNotificationText',
+          'requireConfirmationBeforeSharing',
+          'familyProfileAccessEnabled'
+        ]);
+      allow delete: if isOwner(userId);
+    }
+
+    // Deny all other paths
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
