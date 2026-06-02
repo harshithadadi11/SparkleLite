@@ -111,6 +111,8 @@ Follow these instructions to run the SparkleLite project locally on your machine
 1. Navigate to the backend directory:
    ```bash
    cd sparkle-lite-backend
+   
+   
    ```
 2. Navigate to the cloud functions directory and install dependencies:
    ```bash
