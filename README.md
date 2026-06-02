@@ -111,7 +111,7 @@ Follow these instructions to run the SparkleLite project locally on your machine
 1. Navigate to the backend directory:
    ```bash
    cd sparkle-lite-backend
-   
+   cd "location of project"
    
    ```
 2. Navigate to the cloud functions directory and install dependencies:
@@ -128,6 +128,7 @@ Follow these instructions to run the SparkleLite project locally on your machine
 1. Navigate to the frontend directory:
    ```bash
    cd ../../women_health
+
    ```
 2. Fetch Dart dependencies:
    ```bash
