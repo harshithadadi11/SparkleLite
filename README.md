@@ -317,10 +317,6 @@ Data entities in SparkleLite are declared using **Freezed** for code-generated i
 
 ---
 
-## 14. Screenshots & Demos
+## 14. Demo
 
-*(Add your application screenshots or demo GIFs here to showcase SparkleLite's rich user interface)*
-
-| Premium Dark Theme | Intuitive Health Dashboard | Custom AI Insights |
-| :---: | :---: | :---: |
-| ![Dark Theme Placeholder](https://via.placeholder.com/250x500.png?text=SparkleLite+Dark+Mode) | ![Dashboard Placeholder](https://via.placeholder.com/250x500.png?text=Symptom+Dashboard) | ![Insights Placeholder](https://via.placeholder.com/250x500.png?text=AI+Doctor+Summary) |
+https://drive.google.com/file/d/1wzPOK8kWfyY54_6pM9Fp6iszosrCF_DL/view?usp=sharing
