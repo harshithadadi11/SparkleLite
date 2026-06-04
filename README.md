@@ -128,7 +128,7 @@ Follow these instructions to run the SparkleLite project locally on your machine
 
 
 ### Frontend Setup
-1. Navigate to the frontend directory:
+1. Navigate to the frontend directory: (new terminal)
    ```bash
    cd ../../women_health
    or
