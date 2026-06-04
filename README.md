@@ -122,13 +122,17 @@ Follow these instructions to run the SparkleLite project locally on your machine
    npm run build
    ```
 4. Start the emulators
-npx firebase emulators:start --project sparkle-lite-dev
+   ```bash
+   npx firebase emulators:start --project sparkle-lite-dev
+   ```
 
 
 ### Frontend Setup
 1. Navigate to the frontend directory:
    ```bash
    cd ../../women_health
+   or
+   cd D:\SparkleLite-main\women_health
 
    ```
 2. Fetch Dart dependencies:
