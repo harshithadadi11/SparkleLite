@@ -110,19 +110,20 @@ Follow these instructions to run the SparkleLite project locally on your machine
 ### Backend Setup
 1. Navigate to the backend directory:
    ```bash
-   cd sparkle-lite-backend
-   cd "location of project"
+   cd D:\SparkleLite-main\sparkle-lite-backend\functions
    
    ```
 2. Navigate to the cloud functions directory and install dependencies:
    ```bash
-   cd functions
    npm install
    ```
 3. Build the Cloud Functions TypeScript files:
    ```bash
    npm run build
    ```
+4. Start the emulators
+npx firebase emulators:start --project sparkle-lite-dev
+
 
 ### Frontend Setup
 1. Navigate to the frontend directory:
@@ -138,7 +139,7 @@ Follow these instructions to run the SparkleLite project locally on your machine
    ```bash
    flutter pub run build_runner build --delete-conflicting-outputs
    ```
-
+4. flutter run
 ---
 
 ## 5. Firebase Setup Instructions
@@ -161,8 +162,8 @@ The application is pre-configured to connect to the local emulators.
    npx ts-node scripts/seed-emulator.ts
    ```
    This creates a developer login:
-   * **Test Email**: `test@sparklelite.dev`
-   * **Password**: `Test1234!`
+   * **Test Email**: `user1@gmail.com`
+   * **Password**: `Abcd@1234`
    * **Default Data**: Pre-seeded health profile, symptom logs, sample health records, and family members.
 
 3. **Check Connection IP**:
