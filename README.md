@@ -308,7 +308,7 @@ Data entities in SparkleLite are declared using **Freezed** for code-generated i
 
 ---
 
-## 13. What We Would Improve With More Time
+## 13. What I Would Improve With More Time
 
 1. **Dynamic Dev IP Auto-Discovery**: Eliminate hardcoded emulator IP checks in `main.dart` by implementing dynamic discovery or a local env config manager.
 2. **Generative LLM (Gemini API) Integration**: Securely connect Google's **Gemini API** via Firebase Vertex AI. Utilize it to parse complex, unstructured medical reports (prescriptions, blood tests) to automatically generate symptom trends and summarize reports, maintaining a strict *Forbidden Word filter* list to prevent diagnosing.
